@@ -17,7 +17,7 @@ import softserve.academy.myapplication.ui.screens.UserListScreen
 
 @Composable
 fun AppNavHostNew(modifier: Modifier = Modifier) {
-    val backStack = remember { mutableStateListOf<NavKey>(UserListKey) }
+    val backStack = remember { mutableStateListOf<NavHostDestination>(UserListKey) }
 
     NavDisplay(
         backStack = backStack,
@@ -31,7 +31,10 @@ fun AppNavHostNew(modifier: Modifier = Modifier) {
                         viewModel = viewModel
                     )
                 }
-                is UserEditKey -> NavEntry(key) {
+                is UserEditKey -> NavEntry(
+                    key = key,
+                    metadata = slideVerticalAnimation
+                ) {
                     val viewModel: UserViewModel = hiltViewModel()
                     UserEditScreen(
                         userId = key.userId,
@@ -39,15 +42,15 @@ fun AppNavHostNew(modifier: Modifier = Modifier) {
                         viewModel = viewModel
                     )
                 }
-                is UserCreateKey -> NavEntry(key) {
+                is UserCreateKey -> NavEntry(
+                    key = key,
+                    metadata = slideHorizontalAnimation
+                ) {
                     val viewModel: UserViewModel = hiltViewModel()
                     UserCreateScreen(
                         onBack = { backStack.removeLastOrNull() },
                         viewModel = viewModel
                     )
-                }
-                else -> NavEntry(key) {
-                    Text("Unknown destination")
                 }
             }
         },

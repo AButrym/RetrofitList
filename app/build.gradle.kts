@@ -58,6 +58,9 @@ dependencies {
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
 
+    // Animation
+    implementation(libs.androidx.compose.animation)
+
     // Networking
     implementation(libs.retrofit)
     implementation(libs.serialization.json)

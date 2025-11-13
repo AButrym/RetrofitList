@@ -3,11 +3,13 @@ package softserve.academy.myapplication.ui.navigation
 import kotlinx.serialization.Serializable
 import androidx.navigation3.runtime.NavKey
 
-@Serializable
-object UserListKey : NavKey
+sealed interface NavHostDestination
 
 @Serializable
-data class UserEditKey(val userId: String) : NavKey
+object UserListKey : NavKey, NavHostDestination
 
 @Serializable
-object UserCreateKey : NavKey
+data class UserEditKey(val userId: String) : NavKey, NavHostDestination
+
+@Serializable
+object UserCreateKey : NavKey, NavHostDestination
