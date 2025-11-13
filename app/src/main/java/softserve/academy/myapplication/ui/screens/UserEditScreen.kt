@@ -20,16 +20,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.coil3.CoilImage
 import softserve.academy.myapplication.ui.UserViewModel
 
 @Composable
 fun UserEditScreen(
     userId: String,
-    onDone: () -> Unit,
-    onCancel: () -> Unit,
-    viewModel: UserViewModel = hiltViewModel()
+    onBack: () -> Unit,
+    viewModel: UserViewModel
 ) {
     val users by viewModel.users.collectAsState()
     val user = users.firstOrNull { it.id == userId }
@@ -56,16 +54,16 @@ fun UserEditScreen(
                 modifier = Modifier.fillMaxWidth()
             )
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                Button(onClick = { viewModel.updateUserName(userId, name, onDone) }) {
+                Button(onClick = { viewModel.updateUserName(userId, name, onBack) }) {
                     Text("Submit")
                 }
-                Button(onClick = onCancel) {
+                Button(onClick = onBack) {
                     Text("Cancel")
                 }
             }
         } else {
             Text("User not found", color = MaterialTheme.colorScheme.error)
-            Button(onClick = onCancel) { Text("Back") }
+            Button(onClick = onBack) { Text("Back") }
         }
     }
 }

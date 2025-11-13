@@ -19,7 +19,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.coil3.CoilImage
 import softserve.academy.myapplication.ui.UserViewModel
 
@@ -27,9 +26,8 @@ private const val DEFAULT_AVATAR = "https://avatars.githubusercontent.com/u/9919
 
 @Composable
 fun UserCreateScreen(
-    onDone: () -> Unit,
-    onCancel: () -> Unit,
-    viewModel: UserViewModel = hiltViewModel()
+    onBack: () -> Unit,
+    viewModel: UserViewModel
 ) {
     var name by remember { mutableStateOf("") }
 
@@ -52,10 +50,10 @@ fun UserCreateScreen(
             modifier = Modifier.fillMaxWidth()
         )
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Button(onClick = { viewModel.createUser(name, DEFAULT_AVATAR, onDone) }, enabled = name.isNotBlank()) {
+            Button(onClick = { viewModel.createUser(name, DEFAULT_AVATAR, onBack) }, enabled = name.isNotBlank()) {
                 Text("Submit")
             }
-            Button(onClick = onCancel) {
+            Button(onClick = onBack) {
                 Text("Cancel")
             }
         }

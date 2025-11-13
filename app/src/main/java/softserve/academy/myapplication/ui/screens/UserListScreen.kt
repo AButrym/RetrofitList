@@ -33,7 +33,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.coil3.CoilImage
 import softserve.academy.myapplication.model.User
 import softserve.academy.myapplication.ui.UserViewModel
@@ -43,7 +42,7 @@ import softserve.academy.myapplication.util.formatDate
 fun UserListScreen(
     onEdit: (String) -> Unit,
     onCreate: () -> Unit,
-    viewModel: UserViewModel = hiltViewModel()
+    viewModel: UserViewModel
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val users by viewModel.users.collectAsState()

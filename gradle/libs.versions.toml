@@ -16,6 +16,8 @@ navigationCompose = "2.9.6"
 landscapistCoil3 = "2.6.1"
 hiltNavigationCompose = "1.3.0"
 materialIconsExtended = "1.7.8"
+nav3Core = "1.0.0-rc01"
+lifecycleViewmodelNav3 = "2.10.0-rc01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +44,9 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 landscapist-coil3 = { group = "com.github.skydoves", name = "landscapist-coil3", version.ref = "landscapistCoil3" }
 androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "nav3Core" }
+androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "nav3Core" }
+androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNav3" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
