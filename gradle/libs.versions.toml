@@ -1,20 +1,21 @@
 [versions]
-agp = "8.13.0"
-kotlin = "2.0.21"
-coreKtx = "1.10.1"
+agp = "8.13.1"
+kotlin = "2.2.21"
+coreKtx = "1.17.0"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.6.1"
-activityCompose = "1.8.0"
-composeBom = "2024.09.00"
-retrofit = "2.11.0"
-okhttp = "4.12.0"
-serialization = "1.7.3"
-hilt = "2.52"
-navigationCompose = "2.8.3"
-landscapistCoil3 = "2.3.7"
-hiltNavigationCompose = "1.2.0"
+junitVersion = "1.3.0"
+espressoCore = "3.7.0"
+lifecycleRuntimeKtx = "2.9.4"
+activityCompose = "1.11.0"
+composeBom = "2025.11.00"
+retrofit = "3.0.0"
+okhttp = "5.3.0"
+serialization = "1.9.0"
+hilt = "2.57.2"
+navigationCompose = "2.9.6"
+landscapistCoil3 = "2.6.1"
+hiltNavigationCompose = "1.3.0"
+materialIconsExtended = "1.7.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,6 +41,7 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.r
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 landscapist-coil3 = { group = "com.github.skydoves", name = "landscapist-coil3", version.ref = "landscapistCoil3" }
+androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIconsExtended" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

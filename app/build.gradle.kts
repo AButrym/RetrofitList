@@ -64,6 +64,7 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.compose.material.icons.extended)
     kapt(libs.hilt.compiler)
 
     // Images
