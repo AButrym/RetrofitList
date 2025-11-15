@@ -21,11 +21,7 @@ fun AppNavHost(modifier: Modifier = Modifier) {
 
     NavHost(navController = navController, startDestination = "list", modifier = modifier) {
         composable("list") { backStackEntry ->
-            val parentEntry = remember(backStackEntry) {
-                navController.getBackStackEntry("list")
-            }
-            val sharedVm: UserViewModel =
-                hiltViewModel(parentEntry)
+            val sharedVm: UserViewModel = hiltViewModel(backStackEntry)
             UserListScreen(
                 onEdit = { id -> navController.navigate("edit/$id") },
                 onCreate = { navController.navigate("create") },
@@ -39,8 +35,7 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             val parentEntry = remember(backStackEntry) {
                 navController.getBackStackEntry("list")
             }
-            val sharedVm: UserViewModel =
-                hiltViewModel(parentEntry)
+            val sharedVm: UserViewModel = hiltViewModel(parentEntry)
             val id = backStackEntry.arguments?.getString("id") ?: return@composable
             UserEditScreen(
                 userId = id,
@@ -52,8 +47,7 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             val parentEntry = remember(backStackEntry) {
                 navController.getBackStackEntry("list")
             }
-            val sharedVm: UserViewModel =
-                hiltViewModel(parentEntry)
+            val sharedVm: UserViewModel = hiltViewModel(parentEntry)
             UserCreateScreen(
                 onBack = ::back,
                 viewModel = sharedVm
